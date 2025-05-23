@@ -1,50 +1,59 @@
-
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const bodyParser = require('body-parser');
+
 const app = express();
+const port = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-const invitadosPath = path.join(__dirname, 'invitados.json');
-let invitados = require(invitadosPath);
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Ruta principal para formulario de check-in
+let invitados = require('./invitados.json');
+
+const normalizar = (texto) =>
+  texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+
 app.get('/', (req, res) => {
-  res.render('checkin', { error: null });
+  const { error, confirmado } = req.query;
+  res.render('checkin', { error, confirmado });
 });
 
-// Ruta para procesar el check-in
 app.post('/checkin', (req, res) => {
   const { nombre, cedula, email } = req.body;
-  const nombreNormalizado = nombre.trim().toLowerCase();
-  const cedulaNormalizada = cedula.trim();
 
-  const invitado = invitados.find(inv =>
-    inv.nombre.trim().toLowerCase() === nombreNormalizado &&
-    inv.cedula === cedulaNormalizada
-  );
+  const nombreNormalizado = normalizar(nombre);
+  const cedulaLimpia = cedula.trim();
 
-  if (invitado) {
-    invitado.asistio = true;
-    invitado.email = email;
+  let encontrado = false;
 
-    fs.writeFileSync(invitadosPath, JSON.stringify(invitados, null, 2));
-    res.render('checkin', { error: null, exito: true });
+  for (let invitado of invitados) {
+    const invitadoNombre = normalizar(invitado.nombre);
+    const invitadoCedula = invitado.cedula.trim();
+
+    if (invitadoNombre === nombreNormalizado && invitadoCedula === cedulaLimpia) {
+      invitado.asistio = true;
+      invitado.email = email;
+      encontrado = true;
+      break;
+    }
+  }
+
+  if (encontrado) {
+    fs.writeFileSync('invitados.json', JSON.stringify(invitados, null, 2));
+    res.redirect('/?confirmado=true');
   } else {
-    res.render('checkin', { error: 'Invitado no encontrado.', exito: false });
+    res.redirect('/?error=1');
   }
 });
 
-// Ruta para ver la lista de invitados
 app.get('/lista', (req, res) => {
   res.render('index', { invitados });
 });
 
-// Puerto dinámico para Render o 3000 local
-const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Servidor iniciado en http://localhost:${port}`);
 });
