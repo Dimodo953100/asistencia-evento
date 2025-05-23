@@ -1,44 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro de asistencia</title>
-  <style>
-    body { font-family: Arial, sans-serif; background-color: #f2f2f2; padding: 40px; display: flex; justify-content: center; align-items: center; height: 100vh; }
-    .form-container { background-color: white; padding: 30px 40px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2); width: 100%; max-width: 400px; text-align: center; }
-    h1 { color: #333; margin-bottom: 20px; }
-    label { display: block; margin: 15px 0 5px; text-align: left; color: #555; }
-    input[type="text"], input[type="email"] {
-      width: 100%; padding: 10px; margin-bottom: 15px;
-      border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box;
-    }
-    button {
-      background-color: #4CAF50; color: white; padding: 12px 20px;
-      border: none; border-radius: 5px; cursor: pointer; font-size: 16px;
-    }
-    button:hover { background-color: #45a049; }
-    .error { color: red; margin-top: 10px; }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-  <div class="form-container">
-    <h1>Registro de asistencia</h1>
-    <form action="/checkin" method="POST">
-      <label for="nombre">Nombre y apellido:</label>
-      <input type="text" id="nombre" name="nombre" required>
-
-      <label for="cedula">Cédula (7 dígitos sin puntos ni guiones):</label>
-      <input type="text" id="cedula" name="cedula" pattern="\\d{7}" required>
-
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" required>
-
-      <button type="submit">Confirmar asistencia</button>
-    </form>
-    <% if (error) { %>
-      <div class="error"><%= error %></div>
-    <% } %>
+<body class="bg-light">
+  <div class="container mt-5">
+    <div class="card shadow">
+      <div class="card-header bg-success text-white">
+        <h2 class="mb-0">Confirmar asistencia</h2>
+      </div>
+      <div class="card-body">
+        <% if (error) { %>
+          <div class="alert alert-danger"><%= error %></div>
+        <% } %>
+        <% if (exito) { %>
+          <div class="alert alert-success"><%= exito %></div>
+        <% } %>
+        <form action="/checkin" method="POST">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre y apellido:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+          </div>
+          <div class="mb-3">
+            <label for="cedula" class="form-label">Cédula (7 dígitos sin puntos ni guiones):</label>
+            <input type="text" class="form-control" id="cedula" name="cedula" pattern="\\d{7}" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Confirmar asistencia</button>
+        </form>
+      </div>
+    </div>
   </div>
 </body>
 </html>

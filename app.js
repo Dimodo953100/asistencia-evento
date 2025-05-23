@@ -1,59 +1,71 @@
-const express = require('express');
-const fs = require('fs');
-const path = require('path');
-const bodyParser = require('body-parser');
-
+const express = require("express");
+const fs = require("fs");
+const path = require("path");
+const bodyParser = require("body-parser");
 const app = express();
-const port = process.env.PORT || 3000;
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-app.use(express.static(path.join(__dirname, 'public')));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-let invitados = require('./invitados.json');
+const invitadosPath = path.join(__dirname, "invitados.json");
 
-const normalizar = (texto) =>
-  texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+function cargarInvitados() {
+  const data = fs.readFileSync(invitadosPath);
+  return JSON.parse(data);
+}
 
-app.get('/', (req, res) => {
-  const { error, confirmado } = req.query;
-  res.render('checkin', { error, confirmado });
+function guardarInvitados(invitados) {
+  fs.writeFileSync(invitadosPath, JSON.stringify(invitados, null, 2));
+}
+
+function normalizarTexto(texto) {
+  return texto
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .trim();
+}
+
+app.get("/", (req, res) => {
+  res.render("checkin", { error: null, exito: null });
 });
 
-app.post('/checkin', (req, res) => {
+app.post("/checkin", (req, res) => {
   const { nombre, cedula, email } = req.body;
+  const invitados = cargarInvitados();
+  const nombreNormalizado = normalizarTexto(nombre);
 
-  const nombreNormalizado = normalizar(nombre);
-  const cedulaLimpia = cedula.trim();
+  const invitado = invitados.find(
+    (inv) =>
+      normalizarTexto(inv.nombre) === nombreNormalizado &&
+      inv.cedula === cedula
+  );
 
-  let encontrado = false;
-
-  for (let invitado of invitados) {
-    const invitadoNombre = normalizar(invitado.nombre);
-    const invitadoCedula = invitado.cedula.trim();
-
-    if (invitadoNombre === nombreNormalizado && invitadoCedula === cedulaLimpia) {
-      invitado.asistio = true;
-      invitado.email = email;
-      encontrado = true;
-      break;
-    }
+  if (!invitado) {
+    return res.render("checkin", {
+      error: "Invitado no encontrado. Verifica los datos.",
+      exito: null,
+    });
   }
 
-  if (encontrado) {
-    fs.writeFileSync('invitados.json', JSON.stringify(invitados, null, 2));
-    res.redirect('/?confirmado=true');
-  } else {
-    res.redirect('/?error=1');
-  }
+  invitado.asistio = true;
+  invitado.email = email;
+  guardarInvitados(invitados);
+
+  res.render("checkin", {
+    error: null,
+    exito: "Asistencia confirmada para " + invitado.nombre,
+  });
 });
 
-app.get('/lista', (req, res) => {
-  res.render('index', { invitados });
+app.get("/lista", (req, res) => {
+  const invitados = cargarInvitados();
+  res.render("index", { invitados });
 });
 
-app.listen(port, () => {
-  console.log(`Servidor iniciado en http://localhost:${port}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("Servidor iniciado en http://localhost:" + PORT);
 });
