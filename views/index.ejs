@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de invitados</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body>
+  <h1>Invitados</h1>
+  <ul>
+    <% invitados.forEach(invitado => { %>
+      <li>
+        <strong><%= invitado.nombre %></strong> - 
+        <%= invitado.email %> - 
+        Asistió: <%= invitado.asistio ? '✅' : '❌' %>
+        <div id="qr-<%= invitado.email %>"></div>
+        <script>
+          QRCode.toCanvas(document.getElementById("qr-<%= invitado.email %>"), 
+            "http://localhost:3000/checkin?email=<%= invitado.email %>", 
+            function (error) {
+              if (error) console.error(error);
+            });
+        </script>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>

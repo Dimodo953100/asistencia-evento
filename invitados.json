@@ -1,0 +1,22 @@
+[
+  {
+    "nombre": "Diego Moreno",
+    "email": "diegomoreno3100@gmail.com",
+    "asistio": false
+  },
+  {
+    "nombre": "Ana López",
+    "email": "ana@example.com",
+    "asistio": true
+  },
+  {
+    "nombre": "Carlos Ruiz",
+    "email": "carlos@example.com",
+    "asistio": true
+  },
+  {
+    "nombre": "Cecilia Gómez",
+    "email": "cecikarinago18@gmail.com",
+    "asistio": true
+  }
+]
