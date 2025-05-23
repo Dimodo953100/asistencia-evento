@@ -7,16 +7,16 @@
   {
     "nombre": "Ana López",
     "email": "ana@example.com",
-    "asistio": true
+    "asistio": false
   },
   {
     "nombre": "Carlos Ruiz",
     "email": "carlos@example.com",
-    "asistio": true
+    "asistio": false
   },
   {
     "nombre": "Cecilia Gómez",
     "email": "cecikarinago18@gmail.com",
-    "asistio": true
+    "asistio": false
   }
 ]
