@@ -3,27 +3,41 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Lista de invitados</title>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <title>Lista de Invitados</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f4f6f8; padding: 40px; }
+    h1 { text-align: center; color: #333; }
+    table {
+      margin: 30px auto; border-collapse: collapse;
+      width: 90%; background-color: white; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+    th { background-color: #4CAF50; color: white; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    .asistio { font-weight: bold; }
+    .si { color: green; }
+    .no { color: red; }
+  </style>
 </head>
 <body>
-  <h1>Invitados</h1>
-  <ul>
+  <h1>Lista de invitados</h1>
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Cédula</th>
+      <th>Correo</th>
+      <th>¿Asistió?</th>
+    </tr>
     <% invitados.forEach(invitado => { %>
-      <li>
-        <strong><%= invitado.nombre %></strong> - 
-        <%= invitado.email %> - 
-        Asistió: <%= invitado.asistio ? '✅' : '❌' %>
-        <div id="qr-<%= invitado.email %>"></div>
-        <script>
-          QRCode.toCanvas(document.getElementById("qr-<%= invitado.email %>"), 
-            "http://localhost:3000/checkin?email=<%= invitado.email %>", 
-            function (error) {
-              if (error) console.error(error);
-            });
-        </script>
-      </li>
+      <tr>
+        <td><%= invitado.nombre %></td>
+        <td><%= invitado.cedula %></td>
+        <td><%= invitado.email %></td>
+        <td class="asistio <%= invitado.asistio ? 'si' : 'no' %>">
+          <%= invitado.asistio ? '✅' : '❌' %>
+        </td>
+      </tr>
     <% }) %>
-  </ul>
+  </table>
 </body>
 </html>

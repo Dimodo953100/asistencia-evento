@@ -5,75 +5,40 @@
   <meta charset="UTF-8">
   <title>Registro de asistencia</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      padding: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    body { font-family: Arial, sans-serif; background-color: #f2f2f2; padding: 40px; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .form-container { background-color: white; padding: 30px 40px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2); width: 100%; max-width: 400px; text-align: center; }
+    h1 { color: #333; margin-bottom: 20px; }
+    label { display: block; margin: 15px 0 5px; text-align: left; color: #555; }
+    input[type="text"], input[type="email"] {
+      width: 100%; padding: 10px; margin-bottom: 15px;
+      border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box;
     }
-
-    .form-container {
-      background-color: white;
-      padding: 30px 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      width: 100%;
-      max-width: 400px;
-      text-align: center;
-    }
-
-    h1 {
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      margin: 15px 0 5px;
-      text-align: left;
-      color: #555;
-    }
-
-    input[type="text"],
-    input[type="email"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-
     button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
+      background-color: #4CAF50; color: white; padding: 12px 20px;
+      border: none; border-radius: 5px; cursor: pointer; font-size: 16px;
     }
-
-    button:hover {
-      background-color: #45a049;
-    }
+    button:hover { background-color: #45a049; }
+    .error { color: red; margin-top: 10px; }
   </style>
 </head>
 <body>
   <div class="form-container">
     <h1>Registro de asistencia</h1>
     <form action="/checkin" method="POST">
-      <label for="nombre">Nombre completo</label>
+      <label for="nombre">Nombre y apellido:</label>
       <input type="text" id="nombre" name="nombre" required>
 
-      <label for="email">Correo electrónico</label>
+      <label for="cedula">Cédula (7 dígitos sin puntos ni guiones):</label>
+      <input type="text" id="cedula" name="cedula" pattern="\\d{7}" required>
+
+      <label for="email">Correo electrónico:</label>
       <input type="email" id="email" name="email" required>
 
       <button type="submit">Confirmar asistencia</button>
     </form>
+    <% if (error) { %>
+      <div class="error"><%= error %></div>
+    <% } %>
   </div>
 </body>
 </html>
