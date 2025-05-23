@@ -1,22 +1,26 @@
 [
   {
     "nombre": "Diego Moreno",
-    "email": "diegomoreno3100@gmail.com",
+    "cedula": "1234567",
+    "email": "",
     "asistio": false
   },
   {
-    "nombre": "Ana López",
-    "email": "ana@example.com",
+    "nombre": "Ana L\u00f3pez",
+    "cedula": "2345678",
+    "email": "",
     "asistio": false
   },
   {
     "nombre": "Carlos Ruiz",
-    "email": "carlos@example.com",
+    "cedula": "3456789",
+    "email": "",
     "asistio": false
   },
   {
-    "nombre": "Cecilia Gómez",
-    "email": "cecikarinago18@gmail.com",
+    "nombre": "Cecilia G\u00f3mez",
+    "cedula": "4567890",
+    "email": "",
     "asistio": false
   }
 ]

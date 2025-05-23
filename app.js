@@ -7,24 +7,20 @@ const port = 3000;
 
 const DATA_FILE = path.join(__dirname, 'invitados.json');
 
-// Leer archivo JSON
+// Leer archivo de invitados
 function leerInvitados() {
   const data = fs.readFileSync(DATA_FILE, 'utf-8');
   return JSON.parse(data);
 }
 
-// Guardar en archivo JSON
+// Guardar archivo de invitados
 function guardarInvitados(invitados) {
   fs.writeFileSync(DATA_FILE, JSON.stringify(invitados, null, 2), 'utf-8');
 }
 
-// Normalizar texto: minúsculas, sin tildes, sin espacios extras
+// Normalizar texto (sin tildes, todo en minúscula)
 function normalizarTexto(texto) {
-  return texto
-    .normalize("NFD")                   // separa acentos
-    .replace(/\p{Diacritic}/gu, "")   // elimina diacríticos (acentos)
-    .toLowerCase()
-    .trim();
+  return texto.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().trim();
 }
 
 app.set('view engine', 'ejs');
@@ -38,28 +34,31 @@ app.get('/', (req, res) => {
   res.render('index', { invitados });
 });
 
-// Formulario
+// Formulario de check-in
 app.get('/checkin', (req, res) => {
-  res.render('checkin');
+  res.render('checkin', { error: null });
 });
 
-// Procesamiento
+// Procesar formulario
 app.post('/checkin', (req, res) => {
-  const nombreIngresado = normalizarTexto(req.body.nombre);
-  const emailIngresado = req.body.email.toLowerCase().trim();
-  let invitados = leerInvitados();
+  const { nombre, cedula, email } = req.body;
+  const invitados = leerInvitados();
 
-  const invitado = invitados.find(i =>
-    normalizarTexto(i.nombre) === nombreIngresado &&
-    i.email.toLowerCase().trim() === emailIngresado
+  const normalizadoNombre = normalizarTexto(nombre);
+  const cedulaInput = cedula.trim();
+
+  const invitado = invitados.find(i => 
+    normalizarTexto(i.nombre) === normalizadoNombre &&
+    i.cedula === cedulaInput
   );
 
   if (invitado) {
     invitado.asistio = true;
+    invitado.email = email;
     guardarInvitados(invitados);
-    res.send('<h1>Invitado encontrado, asistí al evento ✅</h1>');
+    res.send('<h1>Invitado confirmado. ¡Gracias por asistir!</h1><a href="/">Volver al listado</a>');
   } else {
-    res.send('<h1>Invitado no encontrado ❌</h1>');
+    res.render('checkin', { error: "Invitado no encontrado. Verificá nombre y cédula." });
   }
 });
 
