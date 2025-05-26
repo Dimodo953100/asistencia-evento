@@ -1,17 +1,21 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const axios = require("axios"); // <== Asegurate de tener axios instalado: npm install axios
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 const invitadosPath = path.join(__dirname, "invitados.json");
+
+// Cambiá esta URL por la tuya si llegara a cambiar
+const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbw2Sk6TCMFeVhPVXnPYfukKU2XNYGbrSVgO8WKGxBEraFW1a3zDtebBqOWQIZoiD-6Irw/exec";
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// Función para normalizar texto (sin tildes, minúsculas)
+// Función para normalizar texto
 function normalizar(texto) {
   return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
 }
@@ -25,7 +29,7 @@ function guardarInvitados(data) {
   fs.writeFileSync(invitadosPath, JSON.stringify(data, null, 2));
 }
 
-// Ruta principal redirige al formulario
+// Redirige al checkin
 app.get("/", (req, res) => {
   res.redirect("/checkin");
 });
@@ -36,7 +40,7 @@ app.get("/checkin", (req, res) => {
 });
 
 // Procesar formulario
-app.post("/checkin", (req, res) => {
+app.post("/checkin", async (req, res) => {
   const { nombre, cedula, email } = req.body;
   const nombreNormalizado = normalizar(nombre);
   const invitados = cargarInvitados();
@@ -50,9 +54,28 @@ app.post("/checkin", (req, res) => {
     invitado.asistio = true;
     invitado.email = email;
     guardarInvitados(invitados);
-    res.render("checkin", { error: null, exito: `Asistencia confirmada para ${invitado.nombre}` });
+
+    // Enviar a Google Sheets
+    try {
+      await axios.post(GOOGLE_SHEET_WEBHOOK, {
+        nombre: invitado.nombre,
+        cedula: invitado.cedula,
+        email: email,
+        asistio: "Sí"
+      });
+    } catch (error) {
+      console.error("Error enviando a Google Sheets:", error.message);
+    }
+
+    res.render("checkin", {
+      error: null,
+      exito: `Asistencia confirmada para ${invitado.nombre}`
+    });
   } else {
-    res.render("checkin", { error: "Invitado no encontrado. Verificá nombre y cédula.", exito: null });
+    res.render("checkin", {
+      error: "Invitado no encontrado. Verificá nombre y cédula.",
+      exito: null
+    });
   }
 });
 
