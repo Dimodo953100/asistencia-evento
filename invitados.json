@@ -1,26 +1,776 @@
 [
   {
+    "nombre": "Federico Baroffio",
+    "cedula": "47011078",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Martin Wilson",
+    "cedula": "45159533",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Santiago Magallanes",
+    "cedula": "44963468",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "María Preti",
+    "cedula": "49486706",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Diego Andrada",
+    "cedula": "53888033",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Franco Fazio",
+    "cedula": "44945880",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Joan Mendez",
+    "cedula": "46532845",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Renzo Giordano",
+    "cedula": "46008771",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Daniela Anza",
+    "cedula": "46038037",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Luis Alvez",
+    "cedula": "44942565",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Ricardo Anza",
+    "cedula": "45827132",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Federico Baroffio",
+    "cedula": "47011078",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Martin Wilson",
+    "cedula": "45159533",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Santiago Magallanes",
+    "cedula": "44963468",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "María Preti",
+    "cedula": "49486706",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Diego Andrada",
+    "cedula": "53888033",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Franco Fazio",
+    "cedula": "44945880",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Joan Mendez",
+    "cedula": "46532845",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Renzo Giordano",
+    "cedula": "46008771",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Daniela Anza",
+    "cedula": "46038037",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Luis Alvez",
+    "cedula": "44942565",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Ricardo Anza",
+    "cedula": "45827132",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "María Rouco",
+    "cedula": "45790280",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Guillermo Fonseca",
+    "cedula": "45698791",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "María Cabrera",
+    "cedula": "53253189",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Camila Villagran",
+    "cedula": "45632799",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Romina Baladon",
+    "cedula": "49041988",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Aníbal Castillo",
+    "cedula": "43880168",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Mariana Penen",
+    "cedula": "50543101",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Adrián Molesini",
+    "cedula": "50186389",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Alejandro Raffo",
+    "cedula": "45536248",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Lauren Rodriguez",
+    "cedula": "48014344",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Andrés Perrone",
+    "cedula": "44557190",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Federico Baroffio",
+    "cedula": "47011078",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Martin Wilson",
+    "cedula": "45159533",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Santiago Magallanes",
+    "cedula": "44963468",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "María Preti",
+    "cedula": "49486706",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Diego Andrada",
+    "cedula": "53888033",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Franco Fazio",
+    "cedula": "44945880",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Joan Mendez",
+    "cedula": "46532845",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Renzo Giordano",
+    "cedula": "46008771",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Daniela Anza",
+    "cedula": "46038037",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Luis Alvez",
+    "cedula": "44942565",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Ricardo Anza",
+    "cedula": "45827132",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "María Rouco",
+    "cedula": "45790280",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Guillermo Fonseca",
+    "cedula": "45698791",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "María Cabrera",
+    "cedula": "53253189",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Camila Villagran",
+    "cedula": "45632799",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Romina Baladon",
+    "cedula": "49041988",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Aníbal Castillo",
+    "cedula": "43880168",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Mariana Penen",
+    "cedula": "50543101",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Adrián Molesini",
+    "cedula": "50186389",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Alejandro Raffo",
+    "cedula": "45536248",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Lauren Rodriguez",
+    "cedula": "48014344",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Andrés Perrone",
+    "cedula": "44557190",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Alejandro Da Silva Ferrao",
+    "cedula": "42454213",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Nicolás Azaretto",
+    "cedula": "40696362",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Nelson Stabile",
+    "cedula": "49825809",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Otto Gosweiler",
+    "cedula": "42897497",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "María Clavijo",
+    "cedula": "45635462",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Guillermo Sangiovanni",
+    "cedula": "47812379",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Janina Jaureguiberry",
+    "cedula": "47812379",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Stephani Bondad",
+    "cedula": "50330209",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Catalina Rubio",
+    "cedula": "43361984",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Cecilia Romero",
+    "cedula": "43042873",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Nestor Sequeira",
+    "cedula": "41933610",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Pablo Gonzalez",
+    "cedula": "49881481",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Nicolás Botto",
+    "cedula": "50054528",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Alfonso Perez",
+    "cedula": "43047243",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Mathias Farias",
+    "cedula": "43047243",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Martin Varela",
+    "cedula": "44971792",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Raúl Carneiro",
+    "cedula": "49594684",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Jorge Gonzalez",
+    "cedula": "42083248",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Macarena Cladera",
+    "cedula": "45515022",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "José Rivero",
+    "cedula": "45259927",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Andrea Apolo",
+    "cedula": "44398960",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Bruno Pastorino",
+    "cedula": "48271037",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Pablo Pedreira",
+    "cedula": "52945375",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Romina Tumilasci",
+    "cedula": "47639642",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Ian Paiz",
+    "cedula": "50015655",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Belén Arotxarena",
+    "cedula": "47518926",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Santiago Serpa",
+    "cedula": "46064836",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Dana Ramirez",
+    "cedula": "47701712",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Ana Lanchas",
+    "cedula": "53975278",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Ivo Fredes",
+    "cedula": "54229204",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Gastón Maldonado",
+    "cedula": "47075458",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Camilo Lopez",
+    "cedula": "47327071",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Santiago Quintela",
+    "cedula": "47210523",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Agustín Silva",
+    "cedula": "53535193",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Facundo Pintos",
+    "cedula": "49849760",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Pablo Falero",
+    "cedula": "46290548",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Axel Viera",
+    "cedula": "49041552",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Luis Palermo",
+    "cedula": "45084753",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Sebastián Laguna",
+    "cedula": "50616112",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Guillermo Alvarez",
+    "cedula": "47769875",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Lucas Rivero",
+    "cedula": "47541798",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Ignacio La Cava",
+    "cedula": "56005909",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Claudia Mello",
+    "cedula": "50238748",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Luis Palermo",
+    "cedula": "54084753",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Juan Esquerre",
+    "cedula": "55244091",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Lucio Perez",
+    "cedula": "52230516",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Diego Furrer",
+    "cedula": "51352254",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Sergio Silva",
+    "cedula": "46337625",
+    "email": "",
+    "asistio": false
+  },
+  {
     "nombre": "Diego Moreno",
-    "cedula": "1234567",
+    "cedula": "47404370",
     "email": "",
     "asistio": false
   },
   {
-    "nombre": "Cecilia Gómez",
-    "cedula": "2345678",
+    "nombre": "Maria Fontana",
+    "cedula": "37775012",
     "email": "",
     "asistio": false
   },
   {
-    "nombre": "Carlos Ruiz",
-    "cedula": "3456789",
+    "nombre": "Carlos Vidal",
+    "cedula": "33779387",
     "email": "",
     "asistio": false
   },
   {
-    "nombre": "Ana López",
-    "cedula": "4567890",
+    "nombre": "Javier Craigdallie",
+    "cedula": "28079556",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Leonardo Nuñez",
+    "cedula": "31310098",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Hector De Leon",
+    "cedula": "36817041",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Edouard Castelo",
+    "cedula": "41308669",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Carlos Garibotto",
+    "cedula": "37653674",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Julio Gomez",
+    "cedula": "35786067",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Gonzalo Palleiro",
+    "cedula": "38576201",
+    "email": "",
+    "asistio": false
+  },{
+    "nombre": "Enrique Quartino",
+    "cedula": "30939524",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Richard Perez",
+    "cedula": "41433397",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Washigton Piriz",
+    "cedula": "42965652",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Pablo Vescia",
+    "cedula": "41550848",
+    "email": "",
+    "asistio": false
+  },
+   {
+    "nombre": "Ángel CEDRES",
+    "cedula": "41911393",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Valeria RODRIGUEZ",
+    "cedula": "43247344",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Álvaro CABRERA",
+    "cedula": "34457667",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Sebastián LANDIN",
+    "cedula": "38600286",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Paolo FERNANDEZ",
+    "cedula": "34675512",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Almir DEBRA",
+    "cedula": "35859482",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Federico SARAVIA",
+    "cedula": "43034044",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "José PORRO",
+    "cedula": "42936500",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Hebert PAREJA",
+    "cedula": "43019662",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Diego RODRIGUEZ",
+    "cedula": "42531825",
+    "email": "",
+    "asistio": false
+  },
+    {
+    "nombre": "Omar ORTIZ",
+    "cedula": "O00109176",
+    "email": "",
+    "asistio": false
+  },
+  {
+    "nombre": "Osvaldo CRUZ",
+    "cedula": "28789431",
     "email": "",
     "asistio": false
   }
+  
 ]
